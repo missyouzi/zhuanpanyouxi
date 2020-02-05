@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="btn">
+            <img src="img/btn.png" alt="">
+        </div>
+        <div class="table">
+            <img src="img/pan.png" alt="">
+        </div>
+    </div>
+    <script src="js/lottery.js"></script>
+    <script>
+        var pars = {
+            rotateNum:8,
+            turnTabel:document.getElementsByClassName('container')[0],
+            judgeFn:judgeFn
+        }
+        var lottery = new Lottery(pars)
+
+        function judgeFn(num){
+            var str = '';
+            if (num > 0 && num < 45 ) {
+                str = '二等奖'
+            } else if (num > 90 && num < 135 || num > 270 && num < 315) {
+                str = '三等奖'
+            } else if (num > 45 && num < 90 || num > 135 && num < 180 || num > 225 && num < 270 || num > 315 && num < 360) {
+                str = '四等奖'
+            } else if (num > 180 && num < 225) {
+                str = '一等奖'
+            }
+            alert('大吉大利！ 今晚获得' + str + '!');
+        }
+    </script>
+    <!-- <script src="js/index.js"></script> -->
+</body>
+</html>
